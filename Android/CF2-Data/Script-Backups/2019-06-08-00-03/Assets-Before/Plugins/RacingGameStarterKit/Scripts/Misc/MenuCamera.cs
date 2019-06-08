@@ -19,7 +19,7 @@ namespace RGSK
         private float newDistance;
         private bool orbit;
         private bool allowTouchOrbit;
-        private ControlFreak2.InputRig.Touch touch;
+        private Touch touch;
         [HideInInspector]
         public bool canOrbit;
 
@@ -50,7 +50,7 @@ namespace RGSK
 
         void Update()
         {
-            orbit = (!allowTouchOrbit) ? ControlFreak2.CF2Input.GetButton("Fire2") : ControlFreak2.CF2Input.touchCount == 1;
+            orbit = (!allowTouchOrbit) ? Input.GetButton("Fire2") : Input.touchCount == 1;
         }
 
         void LateUpdate()
@@ -62,14 +62,14 @@ namespace RGSK
 
                     if (!allowTouchOrbit)
                     {
-                        velX += ControlFreak2.CF2Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-                        velY -= ControlFreak2.CF2Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                        velX += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+                        velY -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
                     }
                     else
                     {
-                        if (ControlFreak2.CF2Input.GetTouch(0).phase == TouchPhase.Moved)
+                        if (Input.GetTouch(0).phase == TouchPhase.Moved)
                         {
-                            touch = ControlFreak2.CF2Input.GetTouch(0);
+                            touch = Input.GetTouch(0);
                             velX += touch.deltaPosition.x * xSpeed * 0.02f;
                             velY -= touch.deltaPosition.y * ySpeed * 0.02f;
                         }
@@ -87,7 +87,7 @@ namespace RGSK
 
                 //Calculate distance from mouse scroll wheel
                 newDistance = Mathf.Clamp(newDistance, distanceMin, distanceMax);
-                newDistance += ControlFreak2.CF2Input.GetAxis("Mouse ScrollWheel") * -zoomMultiplier;
+                newDistance += Input.GetAxis("Mouse ScrollWheel") * -zoomMultiplier;
                 distance = Mathf.Lerp(distance, newDistance, Time.deltaTime);
                 Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
                 Vector3 position = rotation * negDistance + target.position;

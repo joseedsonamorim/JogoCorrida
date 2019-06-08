@@ -199,7 +199,7 @@ namespace RGSK
         void Update()
         {
 
-            if (ControlFreak2.CF2Input.GetKeyDown(KeyCode.Escape)) Back();
+            if (Input.GetKeyDown(KeyCode.Escape)) Back();
 
             RotateVehicle();
 
@@ -404,9 +404,9 @@ namespace RGSK
             //Rotate by drag raycast check
             if (rotateVehicleByDrag)
             {
-                if (ControlFreak2.CF2Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    Ray ray = Camera.main.ScreenPointToRay(ControlFreak2.CF2Input.mousePosition);
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                     RaycastHit hit;
 
@@ -430,9 +430,9 @@ namespace RGSK
                     }
                 }
 
-                if (ControlFreak2.CF2Input.GetButtonUp("Fire1"))
+                if (Input.GetButtonUp("Fire1"))
                 {
-                    Vector3 mPos = Camera.main.ScreenToViewportPoint(new Vector3(ControlFreak2.CF2Input.mousePosition.x, ControlFreak2.CF2Input.mousePosition.y, 0));
+                    Vector3 mPos = Camera.main.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
                     if (raycastTarget) rotateDir = (mPos.x < 0.5f) ? 1 : -1;
 
@@ -445,12 +445,12 @@ namespace RGSK
 
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_WEBGL
 
-                menuVehicles[vehicleIndex].vehicle.Rotate(0, -ControlFreak2.CF2Input.GetAxis("Mouse X"), 0);
+                menuVehicles[vehicleIndex].vehicle.Rotate(0, -Input.GetAxis("Mouse X"), 0);
 
 #else
-         if (ControlFreak2.CF2Input.touchCount > 0 && ControlFreak2.CF2Input.GetTouch(0).phase == TouchPhase.Moved)
+         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
          {
-             Vector2 fingerPos = ControlFreak2.CF2Input.GetTouch(0).deltaPosition;
+             Vector2 fingerPos = Input.GetTouch(0).deltaPosition;
         
              menuVehicles[vehicleIndex].vehicle.Rotate(0, -fingerPos.x, 0);
          }

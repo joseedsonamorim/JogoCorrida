@@ -96,7 +96,7 @@ namespace RGSK
                 Debug.Log("Switched to Controller input");
             }
 
-            if (inputController != InputController.Keyboard && !DetectControllerInput() && ControlFreak2.CF2Input.anyKeyDown)
+            if (inputController != InputController.Keyboard && !DetectControllerInput() && Input.anyKeyDown)
             {
                 inputController = InputController.Keyboard;
                 Debug.Log("Switched to Keyboard input");
@@ -111,11 +111,11 @@ namespace RGSK
                 case InputController.Keyboard:
 
                     //Get input values
-                    float accel = (!autoAcceleration) ? Mathf.Clamp01(ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.verticalAxis)) : 1.0f;
-                    float brake = Mathf.Clamp01(-ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.verticalAxis));
-                    float handbrake = Mathf.Clamp01(ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.handbrakeAxis));
-                    float steer = Mathf.Clamp(ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.horizontalAxis), -1, 1);
-                    bool nitro = ControlFreak2.CF2Input.GetKey(InputManager.instance.keyboardInput.nitroKey);
+                    float accel = (!autoAcceleration) ? Mathf.Clamp01(Input.GetAxis(InputManager.instance.keyboardInput.verticalAxis)) : 1.0f;
+                    float brake = Mathf.Clamp01(-Input.GetAxis(InputManager.instance.keyboardInput.verticalAxis));
+                    float handbrake = Mathf.Clamp01(Input.GetAxis(InputManager.instance.keyboardInput.handbrakeAxis));
+                    float steer = Mathf.Clamp(Input.GetAxis(InputManager.instance.keyboardInput.horizontalAxis), -1, 1);
+                    bool nitro = Input.GetKey(InputManager.instance.keyboardInput.nitroKey);
 
                     //Send inputs
                     SendInputs(accel, brake, steer, handbrake, nitro);
@@ -125,36 +125,36 @@ namespace RGSK
                     if (playerCam)
                     {
                         //Change Camera Views
-                        if (ControlFreak2.CF2Input.GetKeyDown(InputManager.instance.keyboardInput.switchCamera))
+                        if (Input.GetKeyDown(InputManager.instance.keyboardInput.switchCamera))
                         {
                             playerCam.SwitchCameras();
                         }
 
                         //Camera Look Left
-                        playerCam.lookLeft = ControlFreak2.CF2Input.GetKey(InputManager.instance.keyboardInput.cameraLookLEFT);
+                        playerCam.lookLeft = Input.GetKey(InputManager.instance.keyboardInput.cameraLookLEFT);
 
 
                         //Camera Look Right
-                        playerCam.lookRight = ControlFreak2.CF2Input.GetKey(InputManager.instance.keyboardInput.cameraLookRIGHT);
+                        playerCam.lookRight = Input.GetKey(InputManager.instance.keyboardInput.cameraLookRIGHT);
 
 
                         //Camera Look Back
-                        playerCam.lookBack = playerCam.lookRight && playerCam.lookLeft || ControlFreak2.CF2Input.GetKey(InputManager.instance.keyboardInput.cameraLookBACK) || playerCam.velocityDir.z <= -2.0f;
+                        playerCam.lookBack = playerCam.lookRight && playerCam.lookLeft || Input.GetKey(InputManager.instance.keyboardInput.cameraLookBACK) || playerCam.velocityDir.z <= -2.0f;
 
                         //Camera orbit values
-                        playerCam.orbitX = ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.orbitXaxis);
-                        playerCam.orbitY = ControlFreak2.CF2Input.GetAxis(InputManager.instance.keyboardInput.orbitYaxis);
+                        playerCam.orbitX = Input.GetAxis(InputManager.instance.keyboardInput.orbitXaxis);
+                        playerCam.orbitY = Input.GetAxis(InputManager.instance.keyboardInput.orbitYaxis);
                     }
 
                     //Pause
-                    if (ControlFreak2.CF2Input.GetKeyDown(InputManager.instance.keyboardInput.pauseKey))
+                    if (Input.GetKeyDown(InputManager.instance.keyboardInput.pauseKey))
                     {
                         if (RaceManager.instance)
                             RaceManager.instance.PauseRace();
                     }
 
                     //Respawn
-                    if (ControlFreak2.CF2Input.GetKeyDown(InputManager.instance.keyboardInput.respawnKey))
+                    if (Input.GetKeyDown(InputManager.instance.keyboardInput.respawnKey))
                     {
                         Respawn();
                     }
@@ -164,11 +164,11 @@ namespace RGSK
                 case InputController.XboxController:
 
                     //Get input values
-                    float _accel = (!autoAcceleration) ? Mathf.Clamp01(ControlFreak2.CF2Input.GetAxis(InputManager.instance.xboxControllerInput.verticalAxis)) : 1.0f;
-                    float _brake = Mathf.Clamp01(ControlFreak2.CF2Input.GetAxis(InputManager.instance.xboxControllerInput.negativeVerticalAxis));
-                    float _steer = Mathf.Clamp(ControlFreak2.CF2Input.GetAxis(InputManager.instance.xboxControllerInput.horizontalAxis), -1, 1);
-                    float _handbrake = ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.handbrakeButton) ? 1 : 0;
-                    bool _nitro = ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.nitroButton);
+                    float _accel = (!autoAcceleration) ? Mathf.Clamp01(Input.GetAxis(InputManager.instance.xboxControllerInput.verticalAxis)) : 1.0f;
+                    float _brake = Mathf.Clamp01(Input.GetAxis(InputManager.instance.xboxControllerInput.negativeVerticalAxis));
+                    float _steer = Mathf.Clamp(Input.GetAxis(InputManager.instance.xboxControllerInput.horizontalAxis), -1, 1);
+                    float _handbrake = Input.GetButton(InputManager.instance.xboxControllerInput.handbrakeButton) ? 1 : 0;
+                    bool _nitro = Input.GetButton(InputManager.instance.xboxControllerInput.nitroButton);
 
                     //Send inputs
                     SendInputs(_accel, _brake, _steer, _handbrake, _nitro);
@@ -178,36 +178,36 @@ namespace RGSK
                     if (playerCam)
                     {
                         //Change Camera Views
-                        if (ControlFreak2.CF2Input.GetButtonDown(InputManager.instance.xboxControllerInput.switchCamera))
+                        if (Input.GetButtonDown(InputManager.instance.xboxControllerInput.switchCamera))
                         {
                             playerCam.SwitchCameras();
                         }
 
                         //Camera Look Left
-                        playerCam.lookLeft = ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookLEFT);
+                        playerCam.lookLeft = Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookLEFT);
 
 
                         //Camera Look Right
-                        playerCam.lookRight = ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookRIGHT);
+                        playerCam.lookRight = Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookRIGHT);
 
 
                         //Camera Look Back
-                        playerCam.lookBack = playerCam.lookRight && playerCam.lookLeft ||  ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookBACK) || playerCam.velocityDir.z <= -2.0f;
+                        playerCam.lookBack = playerCam.lookRight && playerCam.lookLeft ||  Input.GetButton(InputManager.instance.xboxControllerInput.cameraLookBACK) || playerCam.velocityDir.z <= -2.0f;
 
                         //Camera orbit values
-                        playerCam.orbitX = ControlFreak2.CF2Input.GetAxis(InputManager.instance.xboxControllerInput.orbitXaxis);
-                        playerCam.orbitY = ControlFreak2.CF2Input.GetAxis(InputManager.instance.xboxControllerInput.orbitYaxis);
+                        playerCam.orbitX = Input.GetAxis(InputManager.instance.xboxControllerInput.orbitXaxis);
+                        playerCam.orbitY = Input.GetAxis(InputManager.instance.xboxControllerInput.orbitYaxis);
                     }
 
                     //Pause
-                    if (ControlFreak2.CF2Input.GetButtonDown(InputManager.instance.xboxControllerInput.pauseButton))
+                    if (Input.GetButtonDown(InputManager.instance.xboxControllerInput.pauseButton))
                     {
                         if (RaceManager.instance)
                             RaceManager.instance.PauseRace();
                     }
 
                     //Respawn
-                    if (ControlFreak2.CF2Input.GetButton(InputManager.instance.xboxControllerInput.respawnButton))
+                    if (Input.GetButton(InputManager.instance.xboxControllerInput.respawnButton))
                     {
                         Respawn();
                     }
@@ -284,35 +284,35 @@ namespace RGSK
         {
             // See if the player presses a controller button / joystick
 
-            if (ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button0) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button1) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button2) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button3) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button4) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button5) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button6) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button7) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button8) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button9) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button10) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button11) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button12) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button13) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button14) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button15) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button16) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button17) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button18) ||
-               ControlFreak2.CF2Input.GetKey(KeyCode.Joystick1Button19))
+            if (Input.GetKey(KeyCode.Joystick1Button0) ||
+               Input.GetKey(KeyCode.Joystick1Button1) ||
+               Input.GetKey(KeyCode.Joystick1Button2) ||
+               Input.GetKey(KeyCode.Joystick1Button3) ||
+               Input.GetKey(KeyCode.Joystick1Button4) ||
+               Input.GetKey(KeyCode.Joystick1Button5) ||
+               Input.GetKey(KeyCode.Joystick1Button6) ||
+               Input.GetKey(KeyCode.Joystick1Button7) ||
+               Input.GetKey(KeyCode.Joystick1Button8) ||
+               Input.GetKey(KeyCode.Joystick1Button9) ||
+               Input.GetKey(KeyCode.Joystick1Button10) ||
+               Input.GetKey(KeyCode.Joystick1Button11) ||
+               Input.GetKey(KeyCode.Joystick1Button12) ||
+               Input.GetKey(KeyCode.Joystick1Button13) ||
+               Input.GetKey(KeyCode.Joystick1Button14) ||
+               Input.GetKey(KeyCode.Joystick1Button15) ||
+               Input.GetKey(KeyCode.Joystick1Button16) ||
+               Input.GetKey(KeyCode.Joystick1Button17) ||
+               Input.GetKey(KeyCode.Joystick1Button18) ||
+               Input.GetKey(KeyCode.Joystick1Button19))
             {
                 return true;
             }
 
-            if (ControlFreak2.CF2Input.GetAxis("LeftAnalogHorizontal") != 0.0f ||
-               ControlFreak2.CF2Input.GetAxis("LeftAnalogVertical") != 0.0f ||
-               ControlFreak2.CF2Input.GetAxis("Triggers") != 0.0f ||
-               ControlFreak2.CF2Input.GetAxis("RightAnalogHorizontal") != 0.0f ||
-               ControlFreak2.CF2Input.GetAxis("RightAnalogVertical") != 0.0f)
+            if (Input.GetAxis("LeftAnalogHorizontal") != 0.0f ||
+               Input.GetAxis("LeftAnalogVertical") != 0.0f ||
+               Input.GetAxis("Triggers") != 0.0f ||
+               Input.GetAxis("RightAnalogHorizontal") != 0.0f ||
+               Input.GetAxis("RightAnalogVertical") != 0.0f)
             {
                 return true;
             }

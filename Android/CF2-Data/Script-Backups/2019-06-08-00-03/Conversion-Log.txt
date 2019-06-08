@@ -1,0 +1,87 @@
+Converting script [1 / 3]	[\Plugins\RacingGameStarterKit\Scripts\Misc\MenuCamera.cs]
+	Fragments : 8
+		[ 0] : Line:   22	Other mod.	[Touch]
+		[ 1] : Line:   53	InputMethod   GetButton           	("Fire2")
+		[ 2] : Line:   53	InputProperty touchCount          
+		[ 3] : Line:   65	InputMethod   GetAxis             	("Mouse X")
+		[ 4] : Line:   66	InputMethod   GetAxis             	("Mouse Y")
+		[ 5] : Line:   70	InputMethod   GetTouch            	(0)
+		[ 6] : Line:   72	InputMethod   GetTouch            	(0)
+		[ 7] : Line:   90	InputMethod   GetAxis             	("Mouse ScrollWheel")
+
+Converting script [2 / 3]	[\Plugins\RacingGameStarterKit\Scripts\Misc\MenuManager.cs]
+	Fragments : 10
+		[ 0] : Line:  202	InputMethod   GetKeyDown          	(KeyCode.Escape)
+		[ 1] : Line:  407	InputMethod   GetButtonDown       	("Fire1")
+		[ 2] : Line:  409	InputProperty mousePosition       
+		[ 3] : Line:  433	InputMethod   GetButtonUp         	("Fire1")
+		[ 4] : Line:  435	InputProperty mousePosition       
+		[ 5] : Line:  435	InputProperty mousePosition       
+		[ 6] : Line:  448	InputMethod   GetAxis             	("Mouse X")
+		[ 7] : Line:  451	InputProperty touchCount          
+		[ 8] : Line:  451	InputMethod   GetTouch            	(0)
+		[ 9] : Line:  453	InputMethod   GetTouch            	(0)
+
+Converting script [3 / 3]	[\Plugins\RacingGameStarterKit\Scripts\Vehicle\Input\PlayerControl.cs]
+	Fragments : 52
+		[ 0] : Line:   99	InputProperty anyKeyDown          
+		[ 1] : Line:  114	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.verticalAxis)
+		[ 2] : Line:  115	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.verticalAxis)
+		[ 3] : Line:  116	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.handbrakeAxis)
+		[ 4] : Line:  117	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.horizontalAxis)
+		[ 5] : Line:  118	InputMethod   GetKey              	(InputManager.instance.keyboardInput.nitroKey)
+		[ 6] : Line:  128	InputMethod   GetKeyDown          	(InputManager.instance.keyboardInput.switchCamera)
+		[ 7] : Line:  134	InputMethod   GetKey              	(InputManager.instance.keyboardInput.cameraLookLEFT)
+		[ 8] : Line:  138	InputMethod   GetKey              	(InputManager.instance.keyboardInput.cameraLookRIGHT)
+		[ 9] : Line:  142	InputMethod   GetKey              	(InputManager.instance.keyboardInput.cameraLookBACK)
+		[10] : Line:  145	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.orbitXaxis)
+		[11] : Line:  146	InputMethod   GetAxis             	(InputManager.instance.keyboardInput.orbitYaxis)
+		[12] : Line:  150	InputMethod   GetKeyDown          	(InputManager.instance.keyboardInput.pauseKey)
+		[13] : Line:  157	InputMethod   GetKeyDown          	(InputManager.instance.keyboardInput.respawnKey)
+		[14] : Line:  167	InputMethod   GetAxis             	(InputManager.instance.xboxControllerInput.verticalAxis)
+		[15] : Line:  168	InputMethod   GetAxis             	(InputManager.instance.xboxControllerInput.negativeVerticalAxis)
+		[16] : Line:  169	InputMethod   GetAxis             	(InputManager.instance.xboxControllerInput.horizontalAxis)
+		[17] : Line:  170	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.handbrakeButton)
+		[18] : Line:  171	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.nitroButton)
+		[19] : Line:  181	InputMethod   GetButtonDown       	(InputManager.instance.xboxControllerInput.switchCamera)
+		[20] : Line:  187	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.cameraLookLEFT)
+		[21] : Line:  191	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.cameraLookRIGHT)
+		[22] : Line:  195	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.cameraLookBACK)
+		[23] : Line:  198	InputMethod   GetAxis             	(InputManager.instance.xboxControllerInput.orbitXaxis)
+		[24] : Line:  199	InputMethod   GetAxis             	(InputManager.instance.xboxControllerInput.orbitYaxis)
+		[25] : Line:  203	InputMethod   GetButtonDown       	(InputManager.instance.xboxControllerInput.pauseButton)
+		[26] : Line:  210	InputMethod   GetButton           	(InputManager.instance.xboxControllerInput.respawnButton)
+		[27] : Line:  287	InputMethod   GetKey              	(KeyCode.Joystick1Button0)
+		[28] : Line:  288	InputMethod   GetKey              	(KeyCode.Joystick1Button1)
+		[29] : Line:  289	InputMethod   GetKey              	(KeyCode.Joystick1Button2)
+		[30] : Line:  290	InputMethod   GetKey              	(KeyCode.Joystick1Button3)
+		[31] : Line:  291	InputMethod   GetKey              	(KeyCode.Joystick1Button4)
+		[32] : Line:  292	InputMethod   GetKey              	(KeyCode.Joystick1Button5)
+		[33] : Line:  293	InputMethod   GetKey              	(KeyCode.Joystick1Button6)
+		[34] : Line:  294	InputMethod   GetKey              	(KeyCode.Joystick1Button7)
+		[35] : Line:  295	InputMethod   GetKey              	(KeyCode.Joystick1Button8)
+		[36] : Line:  296	InputMethod   GetKey              	(KeyCode.Joystick1Button9)
+		[37] : Line:  297	InputMethod   GetKey              	(KeyCode.Joystick1Button10)
+		[38] : Line:  298	InputMethod   GetKey              	(KeyCode.Joystick1Button11)
+		[39] : Line:  299	InputMethod   GetKey              	(KeyCode.Joystick1Button12)
+		[40] : Line:  300	InputMethod   GetKey              	(KeyCode.Joystick1Button13)
+		[41] : Line:  301	InputMethod   GetKey              	(KeyCode.Joystick1Button14)
+		[42] : Line:  302	InputMethod   GetKey              	(KeyCode.Joystick1Button15)
+		[43] : Line:  303	InputMethod   GetKey              	(KeyCode.Joystick1Button16)
+		[44] : Line:  304	InputMethod   GetKey              	(KeyCode.Joystick1Button17)
+		[45] : Line:  305	InputMethod   GetKey              	(KeyCode.Joystick1Button18)
+		[46] : Line:  306	InputMethod   GetKey              	(KeyCode.Joystick1Button19)
+		[47] : Line:  311	InputMethod   GetAxis             	("LeftAnalogHorizontal")
+		[48] : Line:  312	InputMethod   GetAxis             	("LeftAnalogVertical")
+		[49] : Line:  313	InputMethod   GetAxis             	("Triggers")
+		[50] : Line:  314	InputMethod   GetAxis             	("RightAnalogHorizontal")
+		[51] : Line:  315	InputMethod   GetAxis             	("RightAnalogVertical")
+
+
+3 scripts modified!
+Overwriting actual scripts...
+	[0 / 3] from  [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/CF2-Data/Script-Backups/2019-06-08-00-03\Assets-After/\Plugins\RacingGameStarterKit\Scripts\Misc\MenuCamera.cs] to [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/Assets/\Plugins\RacingGameStarterKit\Scripts\Misc\MenuCamera.cs]
+	[1 / 3] from  [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/CF2-Data/Script-Backups/2019-06-08-00-03\Assets-After/\Plugins\RacingGameStarterKit\Scripts\Misc\MenuManager.cs] to [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/Assets/\Plugins\RacingGameStarterKit\Scripts\Misc\MenuManager.cs]
+	[2 / 3] from  [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/CF2-Data/Script-Backups/2019-06-08-00-03\Assets-After/\Plugins\RacingGameStarterKit\Scripts\Vehicle\Input\PlayerControl.cs] to [C:/Users/josee/Documents/GitHub/JogoCorrida/Android/Assets/\Plugins\RacingGameStarterKit\Scripts\Vehicle\Input\PlayerControl.cs]
+
+Overwriting COMPLETED!
