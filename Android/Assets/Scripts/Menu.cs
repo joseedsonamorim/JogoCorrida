@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Mapa");
+        SceneManager.LoadScene("CarRace");
     }
 
    public void QuitGame()
